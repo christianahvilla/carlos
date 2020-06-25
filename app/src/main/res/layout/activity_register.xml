@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/tv_register_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_32"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:text="@string/register"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="@id/et_register_name"
+        app:layout_constraintBottom_toTopOf="@id/et_register_name" />
+
+    <EditText
+        android:id="@+id/et_register_name"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:background="@drawable/input_field"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/et_register_email"
+        app:layout_constraintEnd_toEndOf="@+id/et_register_email"
+        app:layout_constraintStart_toStartOf="@+id/et_register_email" />
+
+    <EditText
+        android:id="@+id/et_register_email"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:background="@drawable/input_field"
+        android:layout_marginTop="@dimen/sp_40"
+        android:hint="@string/email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/et_register_password"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_register_password"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:layout_marginTop="@dimen/sp_16"
+        app:layout_constraintLeft_toLeftOf="@id/et_register_email"
+        app:layout_constraintTop_toBottomOf="@id/et_register_email"
+        app:layout_constraintBottom_toTopOf="@id/bt_register_register"
+        app:layout_constraintRight_toRightOf="@id/et_register_email"
+        android:background="@drawable/input_field"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/bt_register_register"
+        android:layout_width="@dimen/sp_162"
+        android:layout_height="@dimen/sp_53"
+        android:background="@drawable/button"
+        android:layout_marginTop="@dimen/sp_16"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/et_register_password"
+        app:layout_constraintRight_toRightOf="@id/et_register_password"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_register_already"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sp_16"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:textColor="@color/colorText"
+        android:text="@string/already_a_member"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_register_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:layout_marginStart="@dimen/sp_4"
+        android:text="@string/login_dot"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_register_already" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

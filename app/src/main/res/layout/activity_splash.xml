@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/iv_splash_image"
+        android:layout_width="@dimen/sp_128"
+        android:layout_height="@dimen/sp_128"
+        app:layout_constraintBottom_toTopOf="@+id/tv_splash_app_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:src="@drawable/ic_baseline_eco_24"
+        android:contentDescription="@string/app_name">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_splash_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_16"
+        android:textSize="@dimen/sp_32"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/iv_splash_image"
+        app:layout_constraintRight_toRightOf="@id/iv_splash_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_splash_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

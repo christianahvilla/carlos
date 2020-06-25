@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Hosting Morelia</string>
+    <string name="hello_there">¡Hola!</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar</string>
+    <string name="register_dot">Registrar.</string>
+    <string name="you_are_not_a_member">¿No eres miembro?</string>
+    <string name="register">Registrar</string>
+    <string name="name">Nombre</string>
+    <string name="already_a_member">¿Ya eres miembro?</string>
+    <string name="login_dot">Iniciar.</string>
+    <string name="add">Agregar</string>
+    <string name="save">Guardar</string>
+    <string name="client">Cliente</string>
+    <string name="price">Precio</string>
+    <string name="domain">Dominio</string>
+    <string name="new_client">Nuevo Cliente</string>
+    <string name="new_user">Nuevo Usuario</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="home">Inicio</string>
+    <string name="invalid_data">Datos Invalidos</string>
+</resources>

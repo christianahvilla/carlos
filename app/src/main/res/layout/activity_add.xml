@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <TextView
+        android:id="@+id/tv_login_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_32"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:text="@string/add"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="@id/et_add_name_client"
+        app:layout_constraintBottom_toTopOf="@id/et_add_name_client" />
+
+    <EditText
+        android:id="@+id/et_add_name_client"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:layout_marginBottom="@dimen/sp_16"
+        android:background="@drawable/input_field"
+        android:hint="@string/client"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/et_add_domain"
+        app:layout_constraintEnd_toEndOf="@+id/et_add_domain"
+        app:layout_constraintStart_toStartOf="@+id/et_add_domain" />
+
+    <EditText
+        android:id="@+id/et_add_domain"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:layout_marginTop="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/input_field"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        android:hint="@string/domain"
+        android:inputType="textUri"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_add_price"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:background="@drawable/input_field"
+        android:layout_marginTop="@dimen/sp_16"
+        android:hint="@string/price"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        app:layout_constraintEnd_toEndOf="@+id/et_add_domain"
+        app:layout_constraintStart_toStartOf="@+id/et_add_domain"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_domain"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/bt_add_save"
+        android:layout_width="@dimen/sp_162"
+        android:layout_height="@dimen/sp_53"
+        android:background="@drawable/button"
+        android:layout_marginTop="@dimen/sp_16"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintEnd_toEndOf="@+id/et_add_price"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/et_add_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

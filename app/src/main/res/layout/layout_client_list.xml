@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:maxHeight="@dimen/sp_310"
+    android:layout_height="@dimen/sp_100"
+    android:background="@drawable/background_border_bottom"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_list_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:textSize="@dimen/sp_24"
+        android:text="@string/client"/>
+
+    <TextView
+        android:id="@+id/tv_list_domain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_list_client"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="@dimen/sp_16"
+        android:text="@string/domain"/>
+
+    <TextView
+        android:id="@+id/tv_list_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/price"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
