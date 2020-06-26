@@ -20,4 +20,10 @@
     <string name="welcome">Bienvenido</string>
     <string name="home">Inicio</string>
     <string name="invalid_data">Datos Invalidos</string>
+    <string name="title_activity_detail">Detalles</string>
+    <string name="kind">Tipo</string>
+    <string name="threeP"><![CDATA[&#8942;]]></string>
+    <string name="dialog_delete">Eliminar</string>
+    <string name="dialog_accept">Aceptar</string>
+    <string name="dialog_cancel">Cancelar</string>
 </resources>

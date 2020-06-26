@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:maxHeight="@dimen/sp_310"
     android:layout_height="@dimen/sp_100"
@@ -31,11 +32,34 @@
         android:id="@+id/tv_list_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:text="@string/price"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toStartOf="@+id/tv_list_menu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_list_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_list_price"
+        app:layout_constraintRight_toLeftOf="@id/tv_list_menu"
         android:layout_margin="@dimen/sp_16"
         android:textSize="@dimen/sp_16"
         android:textColor="@color/colorPrimaryDark"
-        android:text="@string/price"/>
+        android:text="@string/kind"/>
+
+    <TextView
+        android:id="@+id/tv_list_menu"
+        android:layout_width="@dimen/sp_50"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/threeP"
+        android:textSize="@dimen/sp_40"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/colorText"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

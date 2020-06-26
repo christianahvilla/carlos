@@ -21,9 +21,8 @@ class UserDB(): Encrypt() {
 
     fun findUser(email:String, password: String?,setDB: SetDB): User? {
         val db = setDB.writableDatabase
-        val query = Queries.GET_USER + "password = '$password' AND email = '$email'"
+        val query = Queries.GET_USER + "password == '$password' AND email == '$email'"
         val cursor = db.rawQuery(query, null)
-        println(cursor.moveToFirst())
         if(cursor.moveToFirst()){
             val user = User(
                 cursor.getInt(cursor.getColumnIndex(Const.ID)),
@@ -72,7 +71,10 @@ class UserDB(): Encrypt() {
 
     fun logout(setDB: SetDB){
         val db = setDB.writableDatabase
-        db.delete(Const.USERS_TABLE, null, null)
+        val values = ContentValues()
+        values.put(Const.LOGGED, 0)
+        db.update(Const.USERS_TABLE, values, null, null)
         db.close()
     }
+
 }

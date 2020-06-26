@@ -41,7 +41,10 @@ class AddActivity : AppCompatActivity() {
                 0,
                 et_add_name_client.text.toString(),
                 et_add_domain.text.toString(),
-                Integer.parseInt(et_add_price.text.toString())
+                Integer.parseInt(et_add_price.text.toString()),
+                "puto",
+                "puto",
+                "puto"
             )
             clientDB.saveClient(client, db)
             val intent = Intent(this@AddActivity, HomeActivity::class.java)

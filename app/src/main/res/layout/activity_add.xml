@@ -66,6 +66,16 @@
         app:layout_constraintTop_toBottomOf="@+id/et_add_domain"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <Spinner
+        android:id="@+id/sp_add_kind"
+        android:layout_width="@dimen/sp_310"
+        android:layout_height="@dimen/sp_50"
+        android:layout_marginTop="@dimen/sp_16"
+        android:background="@drawable/input_field"
+        android:foregroundTint="@color/colorText"
+        app:layout_constraintTop_toBottomOf="@id/et_add_price"
+        app:layout_constraintLeft_toLeftOf="@id/et_add_price"/>
+
     <Button
         android:id="@+id/bt_add_save"
         android:layout_width="@dimen/sp_162"
@@ -76,8 +86,8 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_24"
-        app:layout_constraintEnd_toEndOf="@+id/et_add_price"
+        app:layout_constraintEnd_toEndOf="@+id/sp_add_kind"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/et_add_price" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_add_kind" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

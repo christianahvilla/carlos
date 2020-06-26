@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class SetDB(ctx: Context) : SQLiteOpenHelper(ctx, "hosting", null, 1) {
+class SetDB(ctx: Context) : SQLiteOpenHelper(ctx, "hostingdb", null, 1) {
 
     companion object {
         private var instance: SetDB? = null
@@ -19,6 +19,7 @@ class SetDB(ctx: Context) : SQLiteOpenHelper(ctx, "hosting", null, 1) {
     }
 
     override fun onCreate(db: SQLiteDatabase) {
+        println(Queries.CLIENTS_TABLE)
         db.execSQL(Queries.CLIENTS_TABLE)
         db.execSQL(Queries.USERS_TABLE)
     }

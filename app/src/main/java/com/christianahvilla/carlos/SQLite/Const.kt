@@ -15,5 +15,8 @@ class Const {
         const val CLIENT = "client"
         const val PRICE = "price"
         const val LOGGED = "logged"
+        const val LAT = "lat"
+        const val LON = "lon"
+        const val KIND = "kind"
     }
 }

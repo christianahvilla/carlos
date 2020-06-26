@@ -54,7 +54,7 @@ class HomeActivity : AppCompatActivity() {
         val lim = LinearLayoutManager(this)
         lim.orientation = LinearLayoutManager.VERTICAL
         client_list.layoutManager = lim
-        adapter = HomeAdapter(clients, this@HomeActivity)
+        adapter = HomeAdapter(clients, this@HomeActivity, db)
         client_list.adapter = adapter
     }
 
