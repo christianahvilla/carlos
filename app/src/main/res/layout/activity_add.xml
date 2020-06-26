@@ -37,18 +37,16 @@
         android:id="@+id/et_add_domain"
         android:layout_width="@dimen/sp_310"
         android:layout_height="@dimen/sp_50"
-        android:layout_marginTop="@dimen/sp_16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/sp_16"
         android:background="@drawable/input_field"
+        android:hint="@string/domain"
+        android:importantForAutofill="no"
+        android:inputType="textUri"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText"
-        android:hint="@string/domain"
-        android:inputType="textUri"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:importantForAutofill="no" />
+        app:layout_constraintBottom_toTopOf="@+id/et_add_price"
+        app:layout_constraintEnd_toEndOf="@+id/et_add_price"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/et_add_price"
@@ -61,9 +59,10 @@
         android:inputType="number"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText"
-        app:layout_constraintEnd_toEndOf="@+id/et_add_domain"
-        app:layout_constraintStart_toStartOf="@+id/et_add_domain"
-        app:layout_constraintTop_toBottomOf="@+id/et_add_domain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Spinner
