@@ -3,7 +3,7 @@ package com.christianahvilla.carlos.Helpers
 import android.util.Base64
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
-import javax.crypto.Cipher
+import javax.crypto.*
 import javax.crypto.spec.SecretKeySpec
 
 open class Encrypt {

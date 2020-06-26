@@ -2,14 +2,17 @@ package com.christianahvilla.carlos
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.christianahvilla.carlos.Helpers.Encrypt
 import com.christianahvilla.carlos.Models.User
 import com.christianahvilla.carlos.SQLite.SetDB
 import com.christianahvilla.carlos.SQLite.UserDB
 import kotlinx.android.synthetic.main.activity_register.*
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -40,19 +43,17 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun validData(): Boolean{
-        return et_register_email.text.isNotBlank() && et_register_name.text.isNotBlank() && et_register_password.text.isNotBlank()
+        return et_register_name.text.isNotBlank() && isValidEmail(et_register_email.text.toString()) && et_register_password.text.isNotBlank()
     }
 
     private fun saveUser(){
         if (validData()) {
-            val encrypt = Encrypt()
             val userDB = UserDB()
-            val password =  encrypt.encrypt(et_register_password.text.toString())
             val user = User(
                 0,
                 et_register_name.text.toString(),
                 et_register_email.text.toString(),
-                password,
+                et_register_password.text.toString(),
                 1
             )
             userDB.saveUser(user, db)
@@ -62,6 +63,14 @@ class RegisterActivity : AppCompatActivity() {
         }
         else {
             Toast.makeText(this@RegisterActivity, resources.getString(R.string.invalid_data), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun isValidEmail(target: CharSequence?): Boolean {
+        return if (TextUtils.isEmpty(target)) {
+            false
+        } else {
+            Patterns.EMAIL_ADDRESS.matcher(target).matches()
         }
     }
 

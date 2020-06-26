@@ -7,9 +7,9 @@ class Queries {
                     "\t`id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                     "\t`client`\tTEXT,\n" +
                     "\t`domain`\tTEXT,\n" +
-                    "\t`price`\tINTEGER\n" +
-                    "\t`lat`\tTEXT\n" +
-                    "\t`lon`\tTEXT\n" +
+                    "\t`price`\tINTEGER,\n" +
+                    "\t`lat`\tTEXT,\n" +
+                    "\t`lon`\tTEXT,\n" +
                     "\t`kind`\tTEXT\n" +
                     ");"
 

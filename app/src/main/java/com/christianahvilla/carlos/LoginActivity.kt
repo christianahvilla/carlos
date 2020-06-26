@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Toast
 import com.christianahvilla.carlos.Helpers.Encrypt
 import com.christianahvilla.carlos.Models.User
@@ -37,21 +39,27 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validData(): Boolean{
-        return et_login_email.text.isNotBlank() && et_login_password.text.isNotBlank()
+        return isValidEmail(et_login_email.text.toString()) && et_login_password.text.isNotBlank()
     }
 
     private fun login(){
         if (validData()) {
-            val encrypt = Encrypt()
-            val password = encrypt.encrypt(et_login_password.text.toString())
             val userDB = UserDB()
-            userDB.findUser(et_login_email.text.toString(), password, db)
+            userDB.findUser(et_login_email.text.toString(), et_login_password.text.toString(), db)
             val intent = Intent(this@LoginActivity, SplashActivity::class.java)
             startActivity(intent)
             finish()
         }
         else {
             Toast.makeText(this@LoginActivity, resources.getString(R.string.invalid_data), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun isValidEmail(target: CharSequence?): Boolean {
+        return if (TextUtils.isEmpty(target)) {
+            false
+        } else {
+            Patterns.EMAIL_ADDRESS.matcher(target).matches()
         }
     }
 

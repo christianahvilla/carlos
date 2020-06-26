@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:maxHeight="@dimen/sp_310"
+    android:id="@+id/lo_list"
     android:layout_height="@dimen/sp_100"
     android:background="@drawable/background_border_bottom"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -55,7 +56,7 @@
         android:layout_width="@dimen/sp_50"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|center_vertical"
-        android:text="@string/threeP"
+        android:text="@string/threeD"
         android:textSize="@dimen/sp_40"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/colorText"
