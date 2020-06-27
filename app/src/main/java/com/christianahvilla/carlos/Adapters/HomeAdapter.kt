@@ -44,8 +44,14 @@ class HomeAdapter(private var clients: ArrayList<Client>, private val context: C
         holder.layout.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("client", clients[position].client)
-            intent.putExtra("lat", clients[position].lat)
-            intent.putExtra("lon", clients[position].lon)
+            intent.putExtra("street", clients[position].street)
+            intent.putExtra("number", clients[position].number)
+            intent.putExtra("state", clients[position].state)
+            intent.putExtra("zipCode", clients[position].zipCode)
+            intent.putExtra("neighborhood", clients[position].neighborhood)
+            intent.putExtra("price", clients[position].price)
+            intent.putExtra("domain", clients[position].domain)
+            intent.putExtra("kind", clients[position].kind)
             context.startActivity(intent)
         }
     }

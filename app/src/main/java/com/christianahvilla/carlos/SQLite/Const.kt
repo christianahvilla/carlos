@@ -15,8 +15,11 @@ class Const {
         const val CLIENT = "client"
         const val PRICE = "price"
         const val LOGGED = "logged"
-        const val LAT = "lat"
-        const val LON = "lon"
+        const val STREET = "street"
+        const val NUMBER = "number"
+        const val STATE = "state"
         const val KIND = "kind"
+        const val NEIGHBORHOOD = "neighborhood"
+        const val ZIP_CODE = "zip_code"
     }
 }

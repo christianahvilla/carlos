@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/sp_250"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_detail_client"
+        android:layout_width="@dimen/sp_40"
+        android:layout_height="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:src="@drawable/ic_baseline_emoji_people_24"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_detail_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sp_16"
+        android:text="@string/client"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_client"
+        app:layout_constraintLeft_toRightOf="@id/iv_detail_client"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_client" />
+
+    <ImageView
+        android:id="@+id/iv_detail_domain"
+        android:layout_width="@dimen/sp_40"
+        android:layout_height="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/sp_18"
+        android:src="@drawable/ic_baseline_web_24"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_client"/>
+
+    <TextView
+        android:id="@+id/tv_detail_domain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sp_18"
+        android:text="@string/domain"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_domain"
+        app:layout_constraintLeft_toRightOf="@id/iv_detail_domain"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_domain" />
+
+    <ImageView
+        android:id="@+id/iv_detail_price"
+        android:layout_width="@dimen/sp_40"
+        android:layout_height="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:src="@drawable/ic_baseline_attach_money_24"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_domain"/>
+
+    <TextView
+        android:id="@+id/tv_detail_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sp_18"
+        android:text="@string/price"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_price"
+        app:layout_constraintStart_toEndOf="@+id/iv_detail_price"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_price" />
+
+    <ImageView
+        android:id="@+id/iv_detail_kind"
+        android:layout_width="@dimen/sp_40"
+        android:layout_height="@dimen/sp_40"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/sp_16"
+        android:src="@drawable/ic_baseline_storefront_24"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_price"/>
+
+    <TextView
+        android:id="@+id/tv_detail_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sp_16"
+        android:text="@string/kind"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_kind"
+        app:layout_constraintStart_toEndOf="@+id/iv_detail_kind"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_kind" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,10 @@ data class Client (
     var client: String,
     var domain: String,
     var price: Int,
-    var lat: String,
-    var lon: String,
+    var street: String,
+    var number: String,
+    var neighborhood: String,
+    var state: String,
+    var zipCode: String,
     var kind: String
 )

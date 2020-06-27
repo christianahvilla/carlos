@@ -8,8 +8,11 @@ class Queries {
                     "\t`client`\tTEXT,\n" +
                     "\t`domain`\tTEXT,\n" +
                     "\t`price`\tINTEGER,\n" +
-                    "\t`lat`\tTEXT,\n" +
-                    "\t`lon`\tTEXT,\n" +
+                    "\t`street`\tTEXT,\n" +
+                    "\t`number`\tTEXT,\n" +
+                    "\t`zip_code`\tTEXT,\n" +
+                    "\t`neighborhood`\tTEXT,\n" +
+                    "\t`state`\tTEXT,\n" +
                     "\t`kind`\tTEXT\n" +
                     ");"
 

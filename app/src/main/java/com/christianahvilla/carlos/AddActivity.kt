@@ -21,24 +21,21 @@ import java.net.URL
 
 class AddActivity : AppCompatActivity() {
 
-    private lateinit var db: SetDB
     var selectedKind = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
-        db = SetDB(this@AddActivity)
-
-        bt_add_save.setOnClickListener {
-            saveClient()
+        bt_add_next.setOnClickListener {
+            nextStep()
         }
 
-        val languages = resources.getStringArray(R.array.Languages)
+        val languages = resources.getStringArray(R.array.Kinds)
 
         if (sp_add_kind != null) {
             val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, languages)
+                R.layout.layout_options, R.id.tv_option, languages)
             sp_add_kind.adapter = adapter
 
             sp_add_kind.onItemSelectedListener = object :
@@ -67,26 +64,14 @@ class AddActivity : AppCompatActivity() {
         return false
     }
 
-    private fun fakePosition(): LatLng? {
-        val morelia = LatLng(19.702864, -101.193536)
-        val randomPositions = RandomPositions()
-        return randomPositions.getRandomLocation(morelia, 1000)
-    }
-
-    private fun saveClient() {
+    private fun nextStep() {
         if (validData()) {
-            val clientDB = ClientDB()
-            val client = Client(
-                0,
-                et_add_name_client.text.toString(),
-                et_add_domain.text.toString(),
-                Integer.parseInt(et_add_price.text.toString()),
-                fakePosition()!!.latitude.toString(),
-                fakePosition()!!.longitude.toString(),
-                selectedKind
-            )
-            clientDB.saveClient(client, db)
-            val intent = Intent(this@AddActivity, HomeActivity::class.java)
+            val intent = Intent(this@AddActivity, AddressActivity::class.java)
+            intent.putExtra("client", et_add_name_client.text.toString())
+            intent.putExtra("kind", selectedKind)
+            intent.putExtra("domain", et_add_domain.text.toString())
+            intent.putExtra("price", Integer.parseInt(et_add_price.text.toString()))
+            println(et_add_price.text.toString())
             startActivity(intent)
             finish()
         }

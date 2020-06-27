@@ -3,8 +3,8 @@ package com.christianahvilla.carlos
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationListener
+import android.location.Address
+import android.location.Geocoder
 import android.location.LocationManager
 import android.os.Bundle
 import android.widget.Toast
@@ -17,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.layout_detail.*
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -24,8 +25,9 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback{
 
     private lateinit var mMap: GoogleMap
     private var locationManager: LocationManager? = null
-    private val MIN_TIME: Long = 400
-    private val MIN_DISTANCE = 1000f
+    val MY_PERMISSIONS_REQUEST_LOCATION = 99
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -34,6 +36,28 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback{
         mapFragment.getMapAsync(this)
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+
+        tv_detail_client.text = intent.getStringExtra("client")
+        tv_detail_domain.text = intent.getStringExtra("domain")
+        tv_detail_price.text = intent.getIntExtra("price", 0).toString()
+        tv_detail_kind.text = intent.getStringExtra("kind")
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    MY_PERMISSIONS_REQUEST_LOCATION)
+
+            }
+        } else {
+            return
+        }
+
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -44,7 +68,19 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback{
                     if ((ContextCompat.checkSelfPermission(this@DetailActivity,
                             Manifest.permission.ACCESS_FINE_LOCATION) ===
                                 PackageManager.PERMISSION_GRANTED)) {
-                        Toast.makeText(this, "Permiso Condedido", Toast.LENGTH_SHORT).show()
+                        mMap.isMyLocationEnabled = true
+
+                        mMap.setOnMyLocationClickListener { location ->
+                            val center = CameraUpdateFactory.newLatLng(
+                                LatLng(
+                                    location.latitude,
+                                    location.longitude
+                                )
+                            )
+                            val zoom = CameraUpdateFactory.zoomTo(15f)
+                            mMap.moveCamera(center)
+                            mMap.animateCamera(zoom)
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Permiso Denegado", Toast.LENGTH_SHORT).show()
@@ -56,11 +92,6 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback{
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val client = intent.getStringExtra("client")
-        val lat = intent.getStringExtra("lat")
-        val lon = intent.getStringExtra("lon")
-        val clientMark = LatLng( lat.toDouble(), lon.toDouble())
-        mMap.addMarker(MarkerOptions().position(clientMark).title(client))
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -81,6 +112,37 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback{
             mMap.animateCamera(zoom)
         }
 
+        val client = intent.getStringExtra("client")
+        val kind = intent.getStringExtra("kind")
+        val number = intent.getStringExtra("number")
+        val street = intent.getStringExtra("street")
+        val zipCode = intent.getStringExtra("zipCode")
+        val state = intent.getStringExtra("state")
+        val neighborhood = intent.getStringExtra("neighborhood")
+
+        val address = getLocationFromAddress(this,"$number, $street, $neighborhood, $state, $zipCode")
+        println("$number, $street, $neighborhood, $state, $zipCode")
+        mMap.addMarker(MarkerOptions().position(address!!).title("$client, $kind"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(address));
+    }
+
+    private fun getLocationFromAddress(context: Context?, strAddress: String?): LatLng? {
+        val coder = Geocoder(context)
+        val address: List<Address>?
+        var point: LatLng? = null
+        try {
+            address = coder.getFromLocationName(strAddress, 5)
+            if (address == null) {
+                return null
+            }
+            val location: Address = address[0]
+            location.latitude
+            location.longitude
+            point = LatLng(location.getLatitude(), location.getLongitude())
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return point
     }
 
 }

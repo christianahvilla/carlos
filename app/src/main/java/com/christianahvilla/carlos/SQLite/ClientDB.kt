@@ -12,9 +12,12 @@ class ClientDB {
         values.put(Const.CLIENT, client.client)
         values.put(Const.DOMAIN, client.domain)
         values.put(Const.PRICE, client.price.toString())
-        values.put(Const.LAT, client.lat)
-        values.put(Const.LON, client.lon)
+        values.put(Const.STREET, client.street)
+        values.put(Const.STATE, client.state)
         values.put(Const.KIND, client.kind)
+        values.put(Const.NUMBER, client.number)
+        values.put(Const.NEIGHBORHOOD, client.neighborhood)
+        values.put(Const.ZIP_CODE, client.zipCode)
         db.insert(Const.CLIENTS_TABLE, null,values)
         db.close()
     }
@@ -30,8 +33,11 @@ class ClientDB {
                     cursor.getString(cursor.getColumnIndex(Const.CLIENT)),
                     cursor.getString(cursor.getColumnIndex(Const.DOMAIN)),
                     cursor.getInt(cursor.getColumnIndex(Const.PRICE)),
-                    cursor.getString(cursor.getColumnIndex(Const.LAT)),
-                    cursor.getString(cursor.getColumnIndex(Const.LON)),
+                    cursor.getString(cursor.getColumnIndex(Const.STREET)),
+                    cursor.getString(cursor.getColumnIndex(Const.NUMBER)),
+                    cursor.getString(cursor.getColumnIndex(Const.NEIGHBORHOOD)),
+                    cursor.getString(cursor.getColumnIndex(Const.STATE)),
+                    cursor.getString(cursor.getColumnIndex(Const.ZIP_CODE)),
                     cursor.getString(cursor.getColumnIndex(Const.KIND))
                 )
                 listCustomer.add(customer)
@@ -57,8 +63,11 @@ class ClientDB {
                 cursor.getString(cursor.getColumnIndex(Const.CLIENT)),
                 cursor.getString(cursor.getColumnIndex(Const.DOMAIN)),
                 cursor.getInt(cursor.getColumnIndex(Const.PRICE)),
-                cursor.getString(cursor.getColumnIndex(Const.LAT)),
-                cursor.getString(cursor.getColumnIndex(Const.LON)),
+                cursor.getString(cursor.getColumnIndex(Const.STREET)),
+                cursor.getString(cursor.getColumnIndex(Const.STATE)),
+                cursor.getString(cursor.getColumnIndex(Const.NUMBER)),
+                cursor.getString(cursor.getColumnIndex(Const.NEIGHBORHOOD)),
+                cursor.getString(cursor.getColumnIndex(Const.ZIP_CODE)),
                 cursor.getString(cursor.getColumnIndex(Const.KIND))
             )
             cursor.close()

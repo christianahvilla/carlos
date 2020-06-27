@@ -16,4 +16,7 @@
     <dimen name="sp_4">4sp</dimen>
     <dimen name="sp_62">62sp</dimen>
     <dimen name="sp_100">100sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_250">250sp</dimen>
 </resources>

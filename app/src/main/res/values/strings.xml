@@ -26,12 +26,20 @@
     <string name="dialog_accept">Aceptar</string>
     <string name="dialog_cancel">Cancelar</string>
     <string name="threeD">⋮</string>
-    <string-array name="Languages">
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>Swift</item>
-        <item>Python</item>
-        <item>Scala</item>
-        <item>Perl</item>
+    <string name="title_activity_addres">Dirección</string>
+    <string name="add_address">Agregar Dirección</string>
+    <string name="street">Calle</string>
+    <string name="number">Número</string>
+    <string name="neighborhood">Colonia</string>
+    <string name="state">Estado</string>
+    <string name="city">Ciudad</string>
+    <string name="zip_code">Codigo Postal</string>
+    <string name="next">Siguiente</string>
+    <string-array name="Kinds">
+        <item>Ferretería</item>
+        <item>Papelería</item>
+        <item>Paletería</item>
+        <item>Abarrotera</item>
+        <item>Taller</item>
     </string-array>
 </resources>
